@@ -21,11 +21,3 @@ function divide(array) {
     accumulator / nextItem)
     : 0;
 }
-
-//npm test code
-module.exports = {
-    subtract,
-    sum,
-    multiply,
-    divide
-  };
