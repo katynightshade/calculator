@@ -28,6 +28,14 @@ function divide(array) {
     : 0;
 }
 
+function keypad() {
+  const numbers = document.getElementsByClassName('numbers');
+  numbers.addEventListener('click', function(e) {
+    console.log(e.numbers.id);
+  });
+}
+keypad();
+
 function operate(operator) {
   operator = operators.id;
   plus.addEventListener('click', () => {
