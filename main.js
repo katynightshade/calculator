@@ -1,9 +1,36 @@
-/*const plus = document.getElementById('plus');
+const opsDisplay = document.querySelector('.top-display');
+const numberDisplay = document.querySelector('.bottom-display');
+const plus = document.getElementById('plus');
 const minus = document.getElementById('minus');
 const times = document.getElementById('times');
 const division = document.getElementById('divide');
 const equals = document.getElementById('equal');
-let operators = document.querySelectorAll('.operators');*/
+
+
+/*let operator = {
+  '+': add(a, b),
+  '-': subtract(a, b),
+  '*': multiply(a, b),
+  '/': divide(a, b),
+  '=': equal,
+}*/
+
+function displayValue() {
+  let array = [];
+  const numberKeys = document.querySelectorAll('.numbers').forEach(number => {
+    number.addEventListener('click', (e) => {
+      numberDisplay.textContent = e.target.id;
+      array.push(e.target.id);
+    });
+  });
+  const operandKeys = document.querySelectorAll('.operators').forEach(operator => {
+    operator.addEventListener('click', (e) => {
+      opsDisplay.textContent = array;
+      array.push(e.target.id);
+    });
+  });
+}
+displayValue();
 
 function add(a, b) {
   return a + b;
