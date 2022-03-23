@@ -28,6 +28,10 @@ html {
     color: #DBD2E0;
 }
 
+.top-display, .bottom-display {
+    height: 50%;
+}
+
 .buttons {
     height: 70%;
     width: 95%;
