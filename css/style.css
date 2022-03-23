@@ -50,6 +50,10 @@ html {
     grid-template-columns: repeat(3, 1fr);
 }
 
+.num-buttons {
+    direction: rtl;
+}
+
 .right-buttons {
     width: 25%;
 }

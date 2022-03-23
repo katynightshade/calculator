@@ -1,19 +1,13 @@
 const opsDisplay = document.querySelector('.top-display');
 const numberDisplay = document.querySelector('.bottom-display');
-const plus = document.getElementById('plus');
-const minus = document.getElementById('minus');
-const times = document.getElementById('times');
-const division = document.getElementById('divide');
-const equals = document.getElementById('equal');
 
 
-/*let operator = {
-  '+': add(a, b),
-  '-': subtract(a, b),
-  '*': multiply(a, b),
-  '/': divide(a, b),
-  '=': equal,
-}*/
+let operator = {
+  '+': document.getElementById('+'),
+  '-': document.getElementById('-'),
+  '*': document.getElementById('x'), 
+  '/': document.getElementById('÷'),
+}
 
 function displayValue() {
   let array = [];
@@ -25,7 +19,7 @@ function displayValue() {
   });
   const operandKeys = document.querySelectorAll('.operators').forEach(operator => {
     operator.addEventListener('click', (e) => {
-      opsDisplay.textContent = array;
+      opsDisplay.textContent = array.join('');
       array.push(e.target.id);
     });
   });
@@ -33,7 +27,8 @@ function displayValue() {
 displayValue();
 
 function add(a, b) {
-  return a + b;
+  let ans = a + b;
+  return ans;
 }
 
 function subtract(a, b) {
@@ -45,7 +40,7 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
-  if (a === 0) {
+  if (b === 0) {
     return "Try Again!";
   } else {
     return a / b;
