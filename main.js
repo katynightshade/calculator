@@ -1,8 +1,7 @@
 let array = [];
 
-//find new subtraction alg
 function subtract(array) {
-	return array.reduce((total, current) => total - current, 0);
+	return array.reduce((firstItem, nextItem) => firstItem - nextItem);
 };
 
 function sum(array) {
