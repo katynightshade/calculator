@@ -2,13 +2,14 @@
 
 html {
     height: 100%;
-    background-color: #273B09;
+    background-color: #DBD2E0;
 }
 
 .calculator {
     height: 650px;
     width: 350px;
     border: 2px solid black;
+    background-color: #273B09;
     margin: 0;
     padding: 5px;
     display: flex;
