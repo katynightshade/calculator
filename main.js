@@ -2,12 +2,12 @@ const opsDisplay = document.querySelector('.top-display');
 const numberDisplay = document.querySelector('.bottom-display');
 
 
-let operator = {
+/*let operator = {
   '+': document.getElementById('+'),
   '-': document.getElementById('-'),
   '*': document.getElementById('x'), 
   '/': document.getElementById('÷'),
-}
+}*/
 
 function displayValue() {
   let array = [];
