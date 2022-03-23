@@ -23,6 +23,15 @@ function displayValue() {
       array.push(e.target.id);
     });
   });
+  const clearKey = document.getElementById('clear-btn');
+  clearKey.addEventListener('click', () => {
+    numberDisplay.textContent = '';
+  });
+  const onKey = document.getElementById('on-btn');
+  onKey.addEventListener('click', () => {
+    window.location.reload();
+  });
+  //need to be able to identify numbers before backspce is functional
 }
 displayValue();
 
