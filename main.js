@@ -1,5 +1,8 @@
 const opsDisplay = document.querySelector('.top-display');
 const numberDisplay = document.querySelector('.bottom-display');
+let number1 = '';
+let number2 = '';
+let operator = '';
 
 
 /*let operator = {
@@ -8,6 +11,8 @@ const numberDisplay = document.querySelector('.bottom-display');
   '*': document.getElementById('x'), 
   '/': document.getElementById('÷'),
 }*/
+
+
 
 function displayValue() {
   let array = [];
@@ -56,17 +61,28 @@ function divide(a, b) {
   };
 }
 
-function operate(a, b, operator) {
+function operate(num1, num2, operator) {
   if (operator == '+') {
-    return add(a, b);
-  } else if (operator == '-') {
-    return subtract(a, b);
-  } else if (operator == '*') {
-    return multiply(a, b);
-  } else {
-    return divide(a, b);
+    return add(num1, num2);
+  } 
+  if (operator == '-') {
+    return subtract(num1, num2);
+  } 
+  if (operator == '*') {
+    return multiply(num1, num2);
+  } 
+  if (operator == '/') {
+    return divide(num1, num2);
   }
 }
+
+function checkMath() {
+  if (numberDisplay.textContent.includes('Infinity') || numberDisplay.textContent.includes('NaN')) {
+    numberDisplay.textContent = 'I am but a mere calculator.';
+  };
+}
+
+
 
 //non-functioning code
 
