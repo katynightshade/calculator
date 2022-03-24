@@ -3,6 +3,7 @@ const numberDisplay = document.querySelector('.bottom-display');
 let number1 = '';
 let number2 = '';
 let operator = '';
+let manipulator = '';
 
 
 /*let operator = {
@@ -14,31 +15,7 @@ let operator = '';
 
 
 
-function displayValue() {
-  let array = [];
-  const numberKeys = document.querySelectorAll('.numbers').forEach(number => {
-    number.addEventListener('click', (e) => {
-      numberDisplay.textContent = e.target.id;
-      array.push(e.target.id);
-    });
-  });
-  const operandKeys = document.querySelectorAll('.operators').forEach(operator => {
-    operator.addEventListener('click', (e) => {
-      opsDisplay.textContent = array.join('');
-      array.push(e.target.id);
-    });
-  });
-  const clearKey = document.getElementById('clear-btn');
-  clearKey.addEventListener('click', () => {
-    numberDisplay.textContent = '';
-  });
-  const onKey = document.getElementById('on-btn');
-  onKey.addEventListener('click', () => {
-    window.location.reload();
-  });
-  //need to be able to identify numbers before backspce is functional
-}
-displayValue();
+
 
 function add(a, b) {
   let ans = a + b;
@@ -82,6 +59,39 @@ function checkMath() {
   };
 }
 
+let array = [number1, operator, number2];
+
+const numberKeys = document.querySelectorAll('.numbers').forEach(number => {
+  number.addEventListener('click', operate(num1, num2) {
+    num1 = number.id;
+    num2 = number.id;
+    numberDisplay.textContent = num1;
+    opsDisplay.textContent = (`${num1}${operator}${num2}`);
+  });
+});
+
+  
+const operandKeys = document.querySelectorAll('.operators').forEach(operator => {
+  operator.addEventListener('click', (e) => {
+    operator = e.target.id;
+    opsDisplay.textContent = array.join('');
+    array.push(operator);
+    numberDisplay.textContent = (`${operate(number1, number2, operator)}`);
+
+  });
+});
+  
+const clearKey = document.getElementById('clear-btn');
+clearKey.addEventListener('click', () => {
+  numberDisplay.textContent = '';
+});
+  
+const onKey = document.getElementById('on-btn');
+  onKey.addEventListener('click', () => {
+    window.location.reload();
+});
+  
+//need to be able to identify numbers before backspce is functional
 
 
 //non-functioning code
@@ -92,9 +102,9 @@ function checkMath() {
     console.log(e.numbers.id);
   });
 }
-keypad();*/
+keypad();
 
-/*function subtract(array) {
+function subtract(array) {
 	return array.reduce((firstItem, nextItem) => firstItem - nextItem);
 };
 
@@ -114,3 +124,58 @@ function divide(array) {
     accumulator / nextItem)
     : 0;
 }*/
+
+/*function firstArg(input) {
+  if (input === '.' && number1.includes('.')) {
+    return;
+  }
+  if (input === 'pos-neg' && numberDisplay.textContent == '') {
+    return;
+  }
+  if (input == 'pos-neg') {
+    number1 = -(number1);
+    numberDisplay.textContent = number1;
+  }
+  if (input == 'backspace') {
+    number1 = number1.split('');
+    number1.pop();
+    number1 = number1.join('');
+    numberDisplay.textContent = number1;
+    return;
+  }
+  number1 += input;
+  numberDisplay.textContent += input;
+  checkMath();
+}
+
+function secondArg(input) {
+  if (number2 == '' && numberDisplay.textContent != '') {
+    numberDisplay.textContent = '';
+  }
+  if (input === '.' && number2.includes('.')) {
+    return;
+  }
+  if (input === 'pos-neg' && numberDisplay.textContent == '') {
+    return;
+  }
+  if (input == 'pos-neg') {
+    number2 = -(number2);
+    numberDisplay.textContent = number2;
+  }
+  number2 += input;
+  numberDisplay.textContent += input;
+}
+
+const numberKeys = document.querySelectorAll('.numbers').forEach(number => {
+  number.addEventListener('click', (e) => {
+    if (Number.isInteger(e.target.id) || e.target.id == '.' || e.target.id == 'pos-neg') {
+      if (operator == '') {
+        firstArg(e.target.id);
+      } else if (number1 != '' && operator != '') {
+        secondArg(e.target.id);
+      }
+    } else if (!Number.isInteger(e.target.id) && operator == '') {
+      numberDisplay.textContent = '';
+    }
+  });
+});*/
