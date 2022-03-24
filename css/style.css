@@ -28,6 +28,11 @@ html {
     color: #DBD2E0;
 }
 
+.top-display {
+    word-wrap: break-word;
+    font-size: 50%;
+}
+
 .top-display, .bottom-display {
     height: 50%;
 }

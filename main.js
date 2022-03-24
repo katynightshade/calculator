@@ -6,6 +6,7 @@ let newInput = '';
 let number1 = '';
 let number2 = '';
 let action = '';
+let historyLength = 52;
 
 function roundLongDecimals(answer) {
   if (answer.toString().indexOf('.') !== -1) {
@@ -104,6 +105,14 @@ function operate(operator, num1, num2) {
   action = '';
 }
 
+/*function limitCharacters() {
+  if (opsDisplay.textContent >= historyLength) {
+    let historyArray = [];
+    historyArray.push(opsDisplay.textContent);
+    opsDisplay.textContent = '';
+  }
+}*/
+
 function handleButtons(button) {
   if (button.classList.contains('numbers')) {
     displayInput('add', button.textContent);
@@ -129,6 +138,7 @@ function handleButtons(button) {
       displayHistory(action, 'operator');
       number1 = newInput;
       displayInput('clear', 0);
+      //limitCharacters();
     } else if (newInput === '' && number1 !== '' && action === '' && newInput !== '.') {
       displayHistory(number1);
       action = button.id;
@@ -148,6 +158,7 @@ function handleButtons(button) {
       displayHistory(number2);
       displayHistory('=');
       operate(action, number1, number2);
+      //limitCharacters();
     }
   } else if (button.classList.contains('backspace')) {
     displayInput('backspace', 0);
@@ -181,7 +192,7 @@ function startCalculator() {
     } else if (event.key === 'Delete' || event.key === 'Escape') {
       document.getElementById('on-btn').click();
     } else if (event.key === '.') {
-      document.getElementById('decimal').click();
+      document.getElementById('.').click();
     } else if (event.key === 'Enter') {
       document.getElementById('equals').click();
     } else if (['+', '-', '*', '/'].includes(event.key)) {
