@@ -105,12 +105,6 @@ function operate(operator, num1, num2) {
   action = '';
 }
 
-function limitCharacters(string, limit) {
-  string = '';
-  limit = 0;
-  return string.substring(0, limit);
-}
-
 function handleButtons(button) {
   if (button.classList.contains('numbers')) {
     displayInput('add', button.textContent);
@@ -199,9 +193,6 @@ function startCalculator() {
       console.log('Not on calculator:', event.key)
     }
   });
-  if (opsDisplay.textContent >= historyLength) {
-    limitCharacters(opsDisplay.textContent.toString(), 52);
-  };
 }
 
 startCalculator();
